@@ -1,20 +1,22 @@
-const imgSrc = [
-  "/batman",
-  "/beast",
-  "/capt",
-  "/cyclops",
-  "/daredevil",
-  "/hawkeye",
-  "/hulk",
-  "/ironman",
-  "/lantern",
-  "/robin",
-  "/spiderman",
-  "/superman",
-  "/thor"
-];
+// const imgSrc = [
+//   "/batman",
+//   "/beast",
+//   "/capt",
+//   "/cyclops",
+//   "/daredevil",
+//   "/hawkeye",
+//   "/hulk",
+//   "/ironman",
+//   "/lantern",
+//   "/robin",
+//   "/spiderman",
+//   "/superman",
+//   "/thor"
+// ];
+const imgSrc = ["/spiderman", "/superman", "/thor"];
 const container = document.getElementById("container");
 const scoreDiv = document.getElementById("score");
+const bestScoreDiv = document.getElementById("bestScore");
 const newGamebtn = document.getElementById("newGame");
 
 var gameCounter = 0;
@@ -37,6 +39,17 @@ let gameImgs = shuffleArray(imgSrc).slice(0, 8);
 let dblImgs = shuffleArray([...gameImgs, ...gameImgs]);
 
 window.addEventListener("load", drawTable(dblImgs));
+
+function setBestScore() {
+  if (localStorage.length == 0) {
+    bestScoreDiv.innerHTML = "Set a new best score &#9786 ";
+  } else {
+    bestScoreDiv.innerText = `Best Score: ${localStorage.getItem(
+      "best-score"
+    )}`;
+  }
+}
+setBestScore();
 
 function drawTable(imgAry) {
   let count = 1;
@@ -115,9 +128,18 @@ container.addEventListener("click", function(e) {
 
 function evaluateWin() {
   if (document.querySelectorAll(".hidden").length === 0) {
-    alert(`You Win! Your score is ${score}`);
-    if (score < parseInt(localStorage.getItem("best-score")))
+    alert(`Congrats! Your score is ${score}`);
+    console.log(
+      "score",
+      score,
+      "local",
+      parseInt(localStorage.getItem("best-score"))
+    );
+
+    if (score < parseInt(localStorage.getItem("best-score"))) {
       localStorage.setItem("best-score", score);
+      setBestScore();
+    }
   }
 }
 
