@@ -1,19 +1,19 @@
-// const imgSrc = [
-//   "/batman",
-//   "/beast",
-//   "/capt",
-//   "/cyclops",
-//   "/daredevil",
-//   "/hawkeye",
-//   "/hulk",
-//   "/ironman",
-//   "/lantern",
-//   "/robin",
-//   "/spiderman",
-//   "/superman",
-//   "/thor"
-// ];
-const imgSrc = ["/spiderman", "/superman", "/thor"];
+const imgSrc = [
+  "/batman",
+  "/beast",
+  "/capt",
+  "/cyclops",
+  "/daredevil",
+  "/hawkeye",
+  "/hulk",
+  "/ironman",
+  "/lantern",
+  "/robin",
+  "/spiderman",
+  "/superman",
+  "/thor"
+];
+
 const container = document.getElementById("container");
 const scoreDiv = document.getElementById("score");
 const bestScoreDiv = document.getElementById("bestScore");
