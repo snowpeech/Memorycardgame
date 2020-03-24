@@ -1,0 +1,38 @@
+body,
+button {
+  font-family: "Walter Turncoat", cursive;
+  text-align: center;
+}
+
+h1 {
+  font-family: "Permanent Marker", cursive;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 22% 22% 22% 22%;
+  background: #000;
+  justify-content: space-evenly;
+  align-content: space-evenly;
+  row-gap: 10px;
+  padding: 10px 0px;
+  border-radius: 5px;
+}
+
+.grid-item {
+  border: 1px solid black;
+  background: #42422c;
+  border-radius: 8px;
+}
+
+.tile {
+  height: 22vw;
+  /* transition: all 1s; */
+  padding-left: 25%;
+  padding-right: 25%;
+}
+
+.hidden {
+  content: url("./images/bam.png");
+  padding: 0px;
+}
