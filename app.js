@@ -63,6 +63,19 @@ function drawTable(imgAry) {
   }
 }
 
+// function drawTable(imgAry) {
+//   let count = 1;
+//   for (var i of imgAry) {
+//     let newDiv = document.createElement("img");
+//     newDiv.classList.add("grid-item", "tile", "hidden");
+//     newDiv.setAttribute("id", count);
+//     newDiv.setAttribute("src", `./images${i}.png`);
+
+//     count++;
+//     container.appendChild(newDiv);
+//   }
+// }
+
 // GAMEPLAY
 let pairID = ["x", "x"];
 let pairSrc = "";
@@ -89,7 +102,6 @@ container.addEventListener("click", function(e) {
     if (pairID[0] === "x") {
       e.target.classList.toggle("hidden");
       validClick();
-      // gameCounter++; //gameCounter should be an odd# to set first click
 
       pairID[0] = e.target.getAttribute("id");
       pairSrc = e.target.getAttribute("src");
@@ -103,7 +115,6 @@ container.addEventListener("click", function(e) {
       pairID[1] = e.target.getAttribute("id");
       e.target.classList.toggle("hidden");
       validClick();
-      // gameCounter++;
 
       //Tiles Match
       if (e.target.getAttribute("src") == pairSrc) {
