@@ -35,7 +35,7 @@ function shuffleArray(array) {
   return array;
 }
 
-let gameImgs = shuffleArray(imgSrc).slice(0, 4);
+let gameImgs = shuffleArray(imgSrc).slice(0, 8);
 let dblImgs = shuffleArray([...gameImgs, ...gameImgs]);
 
 window.addEventListener("load", drawTable(dblImgs));

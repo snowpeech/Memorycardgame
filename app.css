@@ -38,3 +38,7 @@ h1 {
   content: url("./images/bam.png");
   padding: 0px;
 }
+
+.matched {
+  opacity: 0.7;
+}
