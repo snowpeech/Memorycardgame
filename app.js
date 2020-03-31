@@ -35,7 +35,7 @@ function shuffleArray(array) {
   return array;
 }
 
-let gameImgs = shuffleArray(imgSrc).slice(0, 8);
+let gameImgs = shuffleArray(imgSrc).slice(0, 3);
 let dblImgs = shuffleArray([...gameImgs, ...gameImgs]);
 
 window.addEventListener("load", drawTable(dblImgs));
@@ -49,6 +49,7 @@ function setBestScore() {
     )}`;
   }
 }
+
 setBestScore();
 
 function drawTable(imgAry) {
@@ -62,19 +63,6 @@ function drawTable(imgAry) {
     container.appendChild(newDiv);
   }
 }
-
-// function drawTable(imgAry) {
-//   let count = 1;
-//   for (var i of imgAry) {
-//     let newDiv = document.createElement("img");
-//     newDiv.classList.add("grid-item", "tile", "hidden");
-//     newDiv.setAttribute("id", count);
-//     newDiv.setAttribute("src", `./images${i}.png`);
-
-//     count++;
-//     container.appendChild(newDiv);
-//   }
-// }
 
 // GAMEPLAY
 let pairID = ["x", "x"];
@@ -122,7 +110,7 @@ container.addEventListener("click", function(e) {
         let firstMatch = document.getElementById(pairID[0]);
         firstMatch.classList.add("matched");
         resetSet();
-        evaluateWin();
+        setTimeout(evaluateWin, 1000);
       } else {
         //Tiles don't match
         container.classList.add("animating");
@@ -140,18 +128,13 @@ container.addEventListener("click", function(e) {
 function evaluateWin() {
   if (document.querySelectorAll(".hidden").length === 0) {
     alert(`Congrats! Your score is ${score}`);
-    console.log(
-      "score",
-      score,
-      "local",
       parseInt(localStorage.getItem("best-score"))
     );
 
     if (score < parseInt(localStorage.getItem("best-score"))) {
       localStorage.setItem("best-score", score);
+      console.log("am i here?", score)
       setBestScore();
     }
   }
 }
-
-//would like to break gameplay down into smaller functions and simplyfiy anything with pairID[0] and pairID[1]
