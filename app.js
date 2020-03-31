@@ -35,7 +35,7 @@ function shuffleArray(array) {
   return array;
 }
 
-let gameImgs = shuffleArray(imgSrc).slice(0, 3);
+let gameImgs = shuffleArray(imgSrc).slice(0, 4);
 let dblImgs = shuffleArray([...gameImgs, ...gameImgs]);
 
 window.addEventListener("load", drawTable(dblImgs));
@@ -110,7 +110,7 @@ container.addEventListener("click", function(e) {
         let firstMatch = document.getElementById(pairID[0]);
         firstMatch.classList.add("matched");
         resetSet();
-        setTimeout(evaluateWin, 1000);
+        setTimeout(evaluateWin, 900);
       } else {
         //Tiles don't match
         container.classList.add("animating");
@@ -128,12 +128,11 @@ container.addEventListener("click", function(e) {
 function evaluateWin() {
   if (document.querySelectorAll(".hidden").length === 0) {
     alert(`Congrats! Your score is ${score}`);
-      parseInt(localStorage.getItem("best-score"))
-    );
-
-    if (score < parseInt(localStorage.getItem("best-score"))) {
+    if (
+      score < parseInt(localStorage.getItem("best-score")) ||
+      localStorage.length === 0
+    ) {
       localStorage.setItem("best-score", score);
-      console.log("am i here?", score)
       setBestScore();
     }
   }
