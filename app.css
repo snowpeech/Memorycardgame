@@ -1,7 +1,12 @@
-body,
-button {
+body {
   font-family: "Walter Turncoat", cursive;
   text-align: center;
+}
+
+button {
+  font-family: "Walter Turncoat", cursive;
+  border-radius: 3px;
+  border: 1px solid grey;
 }
 
 h1 {
@@ -19,24 +24,30 @@ h1 {
   row-gap: 10px;
   padding: 10px 0px;
   border-radius: 5px;
+  max-width: 80vw;
+  margin: auto;
 }
 
 .grid-item {
   border: 1px solid black;
   background: #42422c;
   border-radius: 8px;
+  max-width: inherit;
+  overflow: hidden;
 }
 
 .tile {
   height: 20vw;
   width: auto;
-  /* padding-left: 25%;
-  padding-right: 25%; */
+  max-width: inherit;
+  overflow: hidden;
 }
 
 .hidden {
   content: url("./images/bam.png");
   padding: 0px;
+  overflow: hidden;
+  max-width: inherit;
 }
 
 .matched {
