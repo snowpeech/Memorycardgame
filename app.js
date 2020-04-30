@@ -2,6 +2,7 @@ const imgSrc = [
   "/batman",
   "/beast",
   "/capt",
+  "/catwoman",
   "/cyclops",
   "/daredevil",
   "/hawkeye",
@@ -11,7 +12,9 @@ const imgSrc = [
   "/robin",
   "/spiderman",
   "/superman",
-  "/thor"
+  "/thor",
+  "/widow",
+  "/wonderwoman",
 ];
 
 const container = document.getElementById("container");
@@ -22,7 +25,7 @@ const newGamebtn = document.getElementById("newGame");
 var gameCounter = 0;
 var score = 0;
 
-newGamebtn.addEventListener("click", function() {
+newGamebtn.addEventListener("click", function () {
   location.reload();
 });
 
@@ -80,7 +83,7 @@ function resetSet() {
   pairSrc = "";
 }
 
-container.addEventListener("click", function(e) {
+container.addEventListener("click", function (e) {
   if (
     !e.target.classList.contains("matched") &&
     e.target.classList.contains("tile") &&
@@ -114,7 +117,7 @@ container.addEventListener("click", function(e) {
       } else {
         //Tiles don't match
         container.classList.add("animating");
-        setTimeout(function() {
+        setTimeout(function () {
           document.getElementById(pairID[0]).classList.add("hidden");
           document.getElementById(pairID[1]).classList.add("hidden");
           resetSet();
