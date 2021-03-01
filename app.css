@@ -11,6 +11,7 @@ button {
 
 h1 {
   font-family: "Permanent Marker", cursive;
+  margin-bottom:5px;
 }
 
 #container {
@@ -24,7 +25,7 @@ h1 {
   row-gap: 10px;
   padding: 10px 0px;
   border-radius: 5px;
-  max-width: 80vw;
+  max-width: 80vh;
   margin: auto;
 }
 
@@ -37,10 +38,11 @@ h1 {
 }
 
 .tile {
-  height: 20vw;
+  height: 17vw;
   width: auto;
   max-width: inherit;
   overflow: hidden;
+  max-height: 17vh;
 }
 
 .hidden {
